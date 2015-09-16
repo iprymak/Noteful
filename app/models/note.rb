@@ -1,4 +1,9 @@
 class Note < ActiveRecord::Base
+  
+  def preview
+    self.content.slice(0..20) << "...(read more)"
+  end
+  
   belongs_to :user
 
   validates :title, presence: true
@@ -7,3 +12,4 @@ class Note < ActiveRecord::Base
   scope :sorted, lambda { order('created_at DESC') }
 
 end
+
