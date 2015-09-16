@@ -1,7 +1,7 @@
 class Note < ActiveRecord::Base
   
   def preview
-    self.content.slice(0..20) << "...(look for more words)"
+    self.content.slice(0..10) << "...(read more here)"
   end
   
   belongs_to :user
